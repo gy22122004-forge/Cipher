@@ -1,0 +1,36 @@
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+*.g.dart
+*.freezed.dart
+
+# Go
+backend/ethara_server
+backend/*.exe
+backend/*.test
+backend/tmp/
+backend/cipher.db
+backend/cipher.db-shm
+backend/cipher.db-wal
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+.DS_Store
+
+# Web build output
+frontend/web/main.dart.js
+frontend/web/main.dart.js.map
+frontend/build/
+
+# Env
+.env
+*.env
