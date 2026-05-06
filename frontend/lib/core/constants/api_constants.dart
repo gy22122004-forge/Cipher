@@ -1,4 +1,10 @@
-const String baseUrl = 'http://localhost:8080/api/v1';
+// API base URL — update this after deploying the backend to Render.
+// For local dev:  http://localhost:8080/api/v1
+// For production: https://cipher-api.onrender.com/api/v1
+const String baseUrl = String.fromEnvironment(
+  'API_BASE_URL',
+  defaultValue: 'https://cipher-api.onrender.com/api/v1',
+);
 
 class Endpoints {
   static const String register     = '$baseUrl/auth/register';

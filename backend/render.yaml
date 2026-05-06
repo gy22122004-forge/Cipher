@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: cipher-api
+    env: go
+    region: oregon
+    plan: free
+    buildCommand: "go build -o cipher_server ./cmd/main.go"
+    startCommand: "./cipher_server"
+    envVars:
+      - key: GIN_MODE
+        value: release
+      - key: PORT
+        value: 8080
+      - key: DB_PATH
+        value: /var/data/cipher.db
+    disk:
+      name: cipher-db
+      mountPath: /var/data
+      sizeGB: 1

@@ -1,6 +1,8 @@
 package database
 
 import (
+	"os"
+
 	"github.com/ethara/backend/internal/models"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
@@ -8,7 +10,11 @@ import (
 )
 
 func Init() (*gorm.DB, error) {
-	db, err := gorm.Open(sqlite.Open("ethara.db"), &gorm.Config{
+	dbPath := os.Getenv("DB_PATH")
+	if dbPath == "" {
+		dbPath = "./cipher.db"
+	}
+	db, err := gorm.Open(sqlite.Open(dbPath), &gorm.Config{
 		Logger: logger.Default.LogMode(logger.Warn),
 	})
 	if err != nil {
